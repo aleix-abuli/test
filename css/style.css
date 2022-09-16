@@ -45,6 +45,7 @@ html {
   top: 0;
   left: 0;
   width: 100vw;
+  max-width: 100vw;
   height: 100vh;
   z-index: 200;
   background-color:#e5e5e5;
@@ -56,6 +57,7 @@ html {
   left: 0;
   opacity: 0;
   width: 100vw;
+  max-width: 100vw;
   height: 100vh;
   z-index: -10;
   background-color:#e5e5e5;
@@ -88,7 +90,7 @@ html {
   animation: fadeIn 1s ease-in forwards, goUp 0.5s ease-in forwards;
 }
 
-/* ------ CIRLCE ------ */
+/* ------ CIRCULAR ANIMATION ------ */
 
 .circle {
   position: fixed;
@@ -396,21 +398,60 @@ li a:hover {
 /* --- CLIENT W/ INFINITE SCROLL --- */
 
 .client {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 40px;
+  position: relative;
+  overflow: hidden;
 }
 
 .img-client {
   margin: 0 auto;
   filter: grayscale(1);
-  width: 15vw;
+  width: 10rem;
 }
 
 .img-client:hover {
   filter: grayscale(0);
 }
 
+.marquee {
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  position: fixed;
+}
+
+.marquee2 {
+  /* animation-delay: 15s; */
+  white-space: nowrap;
+  animation: marquee2 25s linear infinite;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+}
+
+@keyframes marquee {
+  from {
+      transform: translateX(0);
+      display: none;
+  }
+
+  to {
+      transform: translateX(-140rem);
+      display: block;
+  }
+}
+
+@keyframes marquee2 {
+  from {
+      transform: translateX(140rem);
+  }
+
+  to {
+      transform: translateX(0);
+      display: none;
+  }
+}
 /* --- PROJECT SECTION --- */
 
 .recent-projects {

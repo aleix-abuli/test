@@ -8,6 +8,8 @@ $(window).on('load', function(){
       * @param {String} container Class or ID of the animation container
       * @param {String} animation Name of the animation, e.g. smoothscroll
       */
+
+    console.log('working');
       var sliderWidth = 0;	
       var animationWidth = 0;	
       var sliderHeight = $('>div>div:first-of-type',container).outerHeight(false);
