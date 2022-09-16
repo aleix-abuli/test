@@ -1,0 +1,6 @@
+- Fetch a API cambiado: https://jsonplaceholder.typicode.com
+- En projects.html cambié el orden de .project-desc y .project-wrap-other porque el anchor tag se desvinculaba del div (todavía no entiendo por qué)
+- Añadí if statement en addEndPoint() para que funcione en index.html y projects.html
+- Eliminé for loop en dynamicProjectPage() y cambié el fetch para que lo haga de un solo post
+- Añadí fetch del user propietario de cada post para poder poner info extra en lugar de completed on y category (en la nueva API no hay esas keys).
+- Pequeño if statement con template literals para que no recomiende el mismo post que estás mirando en la página.
