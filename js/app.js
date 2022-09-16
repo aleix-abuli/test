@@ -6,6 +6,16 @@ function hambMenu() {
 
 // hambMenu() is called as an 'onclick' event (index.html, line 16)
 
+// Splash page
+const splash = document.querySelector('.splash');
+
+document.addEventListener('DOMContentLoaded',(e) => {
+    setTimeout(() => {
+        splash.classList.add('display-none');
+    }, 4200);
+});
+
+
 // Skewing Effect
 const content = document.querySelector('.skewContainer');
 let currentPosition = window.pageYOffset;

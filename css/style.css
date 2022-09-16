@@ -15,6 +15,10 @@
   --right: #28a428;
   --white: #fff;
   --black: #000;
+  --diameter: 25vw;
+  --circular-line-width: 2px;
+  --background: #000;
+  --line-color: #ff0055;
 }
 
 * {
@@ -33,6 +37,184 @@ html {
 .skewContainer {
   will-change: transform;
   transition: 0.2s ease transform;
+}
+
+/* --- SPLASH PAGE --- */
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+  background-color:#e5e5e5;
+}
+
+.splash.display-none {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  background-color:#e5e5e5;
+  transition: all 1s;
+}
+
+.splash h1 {
+  font-size: 15vw;
+  position: fixed;
+  top: 30vh;
+  left: 30vw;
+  background-color: transparent;
+  color: var(--primary);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes goUp {
+  from {
+    transform: translate3d(0,90px,0)
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards, goUp 0.5s ease-in forwards;
+}
+
+/* ------ CIRLCE ------ */
+
+.circle {
+  position: fixed;
+}
+
+.outer-circle {
+  position: absolute;
+  top: 25vh;
+  left: -12.5vw;
+  height: var(--diameter);
+  width: var(--diameter);
+  border-radius: 50%;
+  background: var(--secondaryDark);
+}
+
+.inner-circle {
+  position: absolute;
+  top: calc(25vh + var(--circular-line-width));
+  left:  calc(-12.5vw + var(--circular-line-width));
+  height: calc(var(--diameter) - 2*var(--circular-line-width));
+  width: calc(var(--diameter) - 2*var(--circular-line-width));
+  background-color: #e5e5e5;
+  border-radius: 50%;
+}
+
+.box {
+  position: absolute;
+  height: calc(var(--diameter)/2);
+  width: calc(var(--diameter)/2);
+  background: #e5e5e5;
+}
+
+.box-top-left {
+  left: -12.5vw;
+  top: 25vh;  
+  transform-origin: 100% 100%;
+  animation: show-top-left 1s linear forwards;
+}
+
+.box-bottom-left {
+  left: -12.5vw;
+  top: calc(25vh + var(--diameter)/2);
+  transform-origin: 100% 0;
+  animation: show-bottom-left 1s linear 1s forwards;
+}
+
+.box-bottom-right {
+  left: calc(-12.5vw + var(--diameter)/2);
+  top: calc(25vh + var(--diameter)/2);
+  transform-origin: 0 0;
+  animation: show-bottom-right 1s linear 2s forwards;
+}
+
+.box-top-right {
+  top: 25vh;
+  left: calc(-12.5vw + var(--diameter)/2);
+  transform-origin: 0 100%;
+  animation: show-top-right 1s linear 3s forwards;
+}
+
+@keyframes show-top-left {
+  0% {
+    transform: skewX(0deg);
+  }
+
+  99.9% {
+    height: calc(var(--diameter)/2);
+    width: calc(var(--diameter)/2);
+  }
+
+  100% {
+    height: 0;
+    width: 0;
+    transform: skewX(90deg);
+  }
+}
+
+@keyframes show-bottom-left {
+  0% {
+    transform: skewY(0deg);
+  }
+
+  99.9% {
+    height: calc(var(--diameter)/2);
+    width: calc(var(--diameter)/2);
+  }
+
+  100% {
+    height: 0;
+    width: 0;
+    transform: skewY(-90deg);
+  }
+}
+
+@keyframes show-bottom-right {
+  0% {
+    transform: skewX(0deg);
+  }
+
+  99.9% {
+    height: calc(var(--diameter)/2);
+    width: calc(var(--diameter)/2);
+  }
+
+  100% {
+    height: 0;
+    width: 0;
+    transform: skewX(90deg);
+  }
+}
+
+@keyframes show-top-right {
+  0% {
+    transform: skewY(0deg);
+  }
+
+  99.9% {
+    height: calc(var(--diameter)/2);
+    width: calc(var(--diameter)/2);
+  }
+
+  100% {
+    height: 0;
+    width: 0;
+    transform: skewY(-90deg);
+  }
 }
 
 /* --- DEFAULT DESIGN: SMARTPHONE --- */
@@ -211,6 +393,8 @@ li a:hover {
   bottom: -15%;
 }
 
+/* --- CLIENT W/ INFINITE SCROLL --- */
+
 .client {
   display: flex;
   flex-flow: row wrap;
@@ -220,6 +404,7 @@ li a:hover {
 .img-client {
   margin: 0 auto;
   filter: grayscale(1);
+  width: 15vw;
 }
 
 .img-client:hover {
