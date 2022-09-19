@@ -7,7 +7,7 @@ Mid Term Project: Circle Agency
 Front-End Development of an agency-oriented website, with responsive design in three sizes (mobile, tablet and desktop). Includes data fetching and posting from an external database.
 
 ## Author
-Ricard Bargalló Martí
+Diego Zito - Aleix Abuli - Carlos Garrido 
 
 ## Education Centre
 Ironhack Barcelona
